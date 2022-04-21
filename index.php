@@ -10,7 +10,7 @@
         echo "<br>";
         echo "<br>";
 
-        $servername = "mysql.eecs.ku.edu";
+        $servername = "mysql.eecs.ku.edu"; //TODO: Create a new mysql database just for the course project
         $database = "n578b202";
         $username = "n578b202";
         $password = "uhaip9ei";
