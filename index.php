@@ -23,6 +23,16 @@
             die("Connection failed: " . $conn->connect_error);
             echo "Cannot connect to database";
         }
+
+        // Create database
+        $sql = "CREATE DATABASE n578b202";
+        if ($conn->query($sql) === TRUE) {
+            echo "Database created successfully";
+        } 
+        else {
+            echo "Error creating database: " . $conn->error;
+        }
+
         echo "Connected to database";
         mysqli_close($conn);
 
