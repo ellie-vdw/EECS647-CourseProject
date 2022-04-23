@@ -12,4 +12,4 @@
 
 Unfortunately 000webhost.com has a single user managing the website and database. However, we can make live changes to this github repository and manually update the 000webhost page and this should reflect our changes. 
 
-Our website and the changes as of Saturday, April 23, can be found here: https://eecs647-library.000webhostapp.com/EECS647-CourseProject/
+Our website and the changes as of Saturday, April 23, can be found here: https://eecs647-course-project.000webhostapp.com/
