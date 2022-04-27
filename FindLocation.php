@@ -10,11 +10,11 @@
 
     $buildingNum = $_POST["buildingNum"];
 
-    $sql = "SELECT Address FROM Libraries WHERE BuildingNum = $buildingNum";
+    $sql = "SELECT Name, PhoneNum, Address FROM Libraries WHERE BuildingNum = $buildingNum";
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo "Address: " . $row["Address"]."<br>";
+            echo "Library Name: " . $row["Name"]."Phone Number: " . $row["PhoneNum"]."Address: " . $row["Address"]."<br>";
         }
     } 
     else {

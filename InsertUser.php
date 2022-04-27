@@ -19,7 +19,7 @@
 	//create account
     $sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
 	
-	if(mysqli_query($mysqli, $sql)){
+	if($mysql->query($sql) === TRUE){
 		echo "Account created successfully.";
 	}
 	else{

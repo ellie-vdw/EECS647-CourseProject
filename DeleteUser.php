@@ -10,10 +10,9 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-
     $sql = "DELETE FROM Members WHERE LibraryCardNum = $username AND Password = $password";
 
-    if(mysqli_query($mysqli, $sql)){
+    if($mysql->query($sql) === TRUE){
 		echo "Account deleted successfully.";
 	}
 	else{
