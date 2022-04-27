@@ -28,8 +28,13 @@
 
     //create account
 	else{
-		$sql = "INSERT INTO Members ($username, $name, $phone, $address, $email, $cardInfo, $buildingNum)";
-		echo "Account created successfully.";
+		$sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
+		if(mysqli_query($mysqli, $sql)){
+			echo "Account created successfully.";
+		}
+		else{
+			echo "Account could not be created.";
+		}
 	}
 	$mysqli->close();
 ?>
