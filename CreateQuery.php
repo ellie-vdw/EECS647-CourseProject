@@ -1,20 +1,19 @@
 <?php
-    // Create connection
-    $mysqli = new mysqli("mysql.eecs.ku.edu", "n578b202", "uhaip9ei", "n578b202");
-
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-
-    //firstname, lastname are sample 
-    $sql = "SELECT id, firstname, lastname FROM MyTable";
-    $result = $conn->query($sql);
+    error_reporting(E_ALL);
+	ini_set("display_errors", 1);
+	$mysqli = new mysqli("mysql.eecs.ku.edu", "ellenvandewate", "raoThah7","ellenvandewate");
+	if ($mysqli->connect_errno) {
+		printf("Connect failed: %s\n", $mysqli->connect_error);
+		exit();
+	}
+    $username = $_POST["username"];
+    $query = "SELECT BooksBorrowed.BorrowID, Books.Title, Books.Author, Books.Genre FROM BooksBorrowed INNER JOIN Books ON BooksBorrowed.BookID = Books.BookID WHERE BooksBorrowed.LibraryCardNum = '$username'";
+    $result = $mysqli->query($query);
 
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        echo "Borrow id: " . $row["BooksBorrowed.BorrowID"]. " Book Title: " . $row["Books.Title"]. " Author" . $row["Books.Author"]. " Genre" . $row["Books.Genre"]. "<br>";
     }
     } else {
     echo "0 results";
