@@ -1,45 +1,70 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+    </head>
     <body>
-        <h1>EECS647: MyCloud - Library Database</h1>
-        <h3>Sign Up or Log in</h3>
+        <h1 class="Header">EECS647: MyCloud - Library Database</h1>
+        <h1 class="Header">Welcome to Cloudy Day Public Libraries</h1>
+        <h3>Existing Users: Log in</h3>
         <form action="CreateUser.php" method="post">
-            Username: <input type="text" username="username"><br><br>
+            Username (CardNum): <input type="text" username="username"><br><br>
+            Password: <input type="text" password="password"><br><br>
+            <input type="submit">
+        </form>
+
+        <br><br>
+
+        <h3>New Users: Sign up</h3>
+        <form action="InsertUser.php" method="post">
+            Username (CardNum): <input type="text" username="username"><br><br>
+            Password: <input type="text" password="password"><br><br>
+            <input type="submit">
+        </form>
+
+        <br><br>
+
+        <h3>Review Account Information</h3>
+        <form action="CreateUser.php" method="post">
+            Username (CardNum): <input type="text" username="username"><br><br>
             Password: <input type="text" password="password"><br><br>
             <input type="submit">
         </form>
 
         <br><br>
         
-        <h3>Create a Table</h3>
-        <form action="CreateTable.php" method="post">
-            TEST, THIS DOES NOT WORK: <input type="text" username="username"><br><br>
-            <input type="submit">
-        </form>
-
-        <br><br>
-
-        <h3>Create a Query</h3>
+        <h3>Search by critera</h3>
         <form action="CreateQuery.php" method="post">
-            TEST, THIS DOES NOT WORK: <input type="text" username="username"><br><br>
+            Book Title: <input type="text" bookTitle="bookTitle"><br><br>
+            Author: <input type="text" author="author"><br><br>
+            Genre: <input type="text" genre="genre"><br><br>
+            Availability: <input type="text" isBorrowed="isBorrowed"><br><br>
+            Location: <input type="text" location="location"><br><br>
             <input type="submit">
         </form>
 
         <br><br>
 
-        <h3>Insert to a Table</h3>
-        <form action="Insert.php" method="post">
-            TEST, THIS DOES NOT WORK: <input type="text" username="username"><br><br>
+        <h3>Find a location</h3>
+        <form action="CreateQuery.php" method="post">
+            Address: <input type="text" location="location"><br><br>
+            <input type="submit">
+        </form>
+
+        <!-- Books, authors, genre, book id, borrowed (availability), libraries by location (find a location), look at your information,  -->
+
+        <br><br>
+
+        <h3>Delete Account</h3>
+        <form action="DeleteUser.php" method="post">
+            Username (CardNum): <input type="text" username="username"><br><br>
+            Password: <input type="text" password="password"><br><br>
             <input type="submit">
         </form>
 
         <br><br>
-
-        <h3>Delete from a Table</h3>
-        <form action="Delete.php" method="post">
-            TEST, THIS DOES NOT WORK: <input type="text" username="username"><br><br>
-            <input type="submit">
-        </form>
-
 
     </body>
 </html>
