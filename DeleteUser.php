@@ -12,7 +12,7 @@
 
     $sql = "DELETE FROM Members WHERE LibraryCardNum = $username AND Password = $password";
 
-    if($mysql->query($sql) === TRUE){
+    if($mysqli->query($sql) === TRUE){
 		echo "Account deleted successfully.";
 	}
 	else{
