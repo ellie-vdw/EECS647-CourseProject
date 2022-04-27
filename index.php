@@ -18,31 +18,31 @@
         echo "<h2 class='menu1'>Book Due Date</h2>"; #Idk what we want to do for the borrow book part so ill just leave this here for rn.
         echo "</div>";
 
-        $servername = "mysql.eecs.ku.edu"; //TODO: Create a new mysql database just for the course project
-        $database = "n578b202"; 
-        $username = "n578b202";
-        $password = "uhaip9ei";
+        $servername = "localhost"; //TODO: Create a new mysql database just for the course project
+        $database = "id18829926_library"; 
+        $username = "id18829926_libraryuser";
+        $password = "1234567890";
 
         // Create connection
-        $conn = mysqli_connect($servername, $username, $password, $database);
+        //$conn = mysqli_connect($servername, $username, $password, $database);
 
         // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            echo "Cannot connect to database";
-        }
+        // if ($conn->connect_error) {
+        //     die("Connection failed: " . $conn->connect_error);
+        //     echo "Cannot connect to database";
+        // }
 
-        // Create database
-        $sql = "CREATE DATABASE n578b202";
-        if ($conn->query($sql) === TRUE) {
-            echo "Database created successfully";
-        } 
-        else {
-            echo "Error creating database: " . $conn->error;
-        }
+        // // Create database
+        // $sql = "CREATE DATABASE n578b202";
+        // if ($conn->query($sql) === TRUE) {
+        //     echo "Database created successfully";
+        // } 
+        // else {
+        //     echo "Error creating database: " . $conn->error;
+        // }
 
-        echo "Connected to database";
-        mysqli_close($conn);
+        // echo "Connected to database";
+        // mysqli_close($conn);
     ?>
 
     </body>
@@ -55,7 +55,7 @@
         }
         .menu1{
             color: #1261a0;
-            text-align: center;
+            text-align: left;
             font-family: 'chicle', cursive;
             font-size: 30px;
         }
