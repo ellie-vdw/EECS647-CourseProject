@@ -15,24 +15,24 @@
         printf("Cannot connect to database");
     }
 
-    $username = $_POST["username"];
+    // $username = $_POST["username"];
 
-    $query = "SELECT user_id FROM Users where user_id='".$username."'";
+    // $query = "SELECT user_id FROM Users where user_id='".$username."'";
 
-    if($_POST["username"] != '' && $num_rows < 1){
-        $query = "INSERT INTO Users (user_id) VALUES (\"$username\");";
+    // if($_POST["username"] != '' && $num_rows < 1){
+    //     $query = "INSERT INTO Users (user_id) VALUES (\"$username\");";
 
-        if ($mysqli->query($query) == TRUE){
-            printf("Username saved.");     
-        } 
-        else{
-            printf("Username already in use.");
-        }
-    } 
-    else{
-        printf("Usernames cannot be empty.");
-    }
- 
+    //     if ($mysqli->query($query) == TRUE){
+    //         printf("Username saved.");     
+    //     } 
+    //     else{
+    //         printf("Username already in use.");
+    //     }
+    // } 
+    // else{
+    //     printf("Usernames cannot be empty.");
+    // }
+    printf("Connected to database");
     /* close connection */
     $mysqli->close();
 ?>
