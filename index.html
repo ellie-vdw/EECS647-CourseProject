@@ -19,14 +19,14 @@
 
         <h3>New Users: Sign up</h3>
         <form action="InsertUser.php" method="post">
-            Username (CardNum): <input type="text" username="username"><br><br>
-            Password: <input type="text" password="password"><br><br>
+            Username (CardNum): <input type="text" name="username"><br><br>
+            Password: <input type="text" name="password"><br><br>
             Name: <input type="text" name="name"><br><br>
-            Phone Number: <input type="text" phone="phone"><br><br>
-            Address: <input type="text" address="address"><br><br>
-            Email: <input type="text" email="email"><br><br>
-            Credit Card Info: <input type="text" cardInfo="cardInfo"><br><br>
-            Library Building Num: <input type="text" buildingNum="buildingNum"><br><br>
+            Phone Number: <input type="text" name="phone"><br><br>
+            Address: <input type="text" name="address"><br><br>
+            Email: <input type="text" name="email"><br><br>
+            Credit Card Info: <input type="text" name="cardInfo"><br><br>
+            Library Building Num: <input type="text" name="buildingNum"><br><br>
             <input type="submit">
         </form>
 
@@ -34,8 +34,8 @@
 
         <h3>Review Account Information</h3>
         <form action="CreateUser.php" method="post">
-            Username (CardNum): <input type="text" username="username"><br><br>
-            Password: <input type="text" password="password"><br><br>
+            Username (CardNum): <input type="text" name="username"><br><br>
+            Password: <input type="text" name="password"><br><br>
             <input type="submit">
         </form>
 
@@ -43,19 +43,19 @@
         
         <h3>Search by critera</h3>
         <form action="CreateQuery.php" method="post">
-            Book Title: <input type="text" bookTitle="bookTitle"><br><br>
-            Author: <input type="text" author="author"><br><br>
-            Genre: <input type="text" genre="genre"><br><br>
-            Availability: <input type="text" isBorrowed="isBorrowed"><br><br>
-            Location: <input type="text" location="location"><br><br>
+            Book Title: <input type="text" name="bookTitle"><br><br>
+            Author: <input type="text" name="author"><br><br>
+            Genre: <input type="text" name="genre"><br><br>
+            Availability: <input type="text" name="isBorrowed"><br><br>
+            Location: <input type="text" name="location"><br><br>
             <input type="submit">
         </form>
 
         <br><br>
 
         <h3>Find a location</h3>
-        <form action="CreateQuery.php" method="post">
-            Address: <input type="text" location="location"><br><br>
+        <form action="FindLocation.php" method="post">
+            Address: <input type="text" name="location"><br><br>
             <input type="submit">
         </form>
 
@@ -65,8 +65,8 @@
 
         <h3>Delete Account</h3>
         <form action="DeleteUser.php" method="post">
-            Username (CardNum): <input type="text" username="username"><br><br>
-            Password: <input type="text" password="password"><br><br>
+            Username (CardNum): <input type="text" name="username"><br><br>
+            Password: <input type="text" name="password"><br><br>
             <input type="submit">
         </form>
 
