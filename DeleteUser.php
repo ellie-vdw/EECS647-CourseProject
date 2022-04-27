@@ -6,16 +6,31 @@
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-	$query = "DELETE FROM Members WHERE $sernameLibraryCardNum FROM Members";
-	$result = $mysqli->query($query);
-	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-			echo "Library Card Number: " . $row["LibraryCardNum"]. "<br>";
-		}
-	} 
-	else {
-		echo "0 results";
+
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+
+    $sql = "DELETE FROM Members WHERE LibraryCardNum = $username AND Password = $password";
+
+    if(mysqli_query($mysqli, $sql)){
+		echo "Account deleted successfully.";
 	}
+	else{
+		echo "Account could not be deleted.";
+	}
+    
 	$mysqli->close();
 
 ?>
+
+
+
+$sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
+	
+	if(mysqli_query($mysqli, $sql)){
+		echo "Account created successfully.";
+	}
+	else{
+		echo "Account could not be created.";
+	}

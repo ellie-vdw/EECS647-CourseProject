@@ -14,27 +14,20 @@
     $address = $_POST["address"];
     $email = $_POST["email"];
     $cardInfo = $_POST["cardInfo"];
-    $buildingNum = $_POST["buildngNum"];
+    $buildingNum = $_POST["buildingNum"];
 
 
 	$result = $mysqli->query($query);
-    // check for existing account
-	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-            echo "Here are the existing accounts:";
-			echo "Library Card Number: " . $row["LibraryCardNum"]. "<br>";
-		}
-	} 
 
-    //create account
-	else{
-		$sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
-		if(mysqli_query($mysqli, $sql)){
-			echo "Account created successfully.";
-		}
-		else{
-			echo "Account could not be created.";
-		}
+	//create account
+    $sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
+	
+	if(mysqli_query($mysqli, $sql)){
+		echo "Account created successfully.";
 	}
+	else{
+		echo "Account could not be created.";
+	}
+	
 	$mysqli->close();
 ?>
