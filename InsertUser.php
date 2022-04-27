@@ -16,9 +16,6 @@
     $cardInfo = $_POST["cardInfo"];
     $buildingNum = $_POST["buildingNum"];
 
-
-	$result = $mysqli->query($query);
-
 	//create account
     $sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
 	
@@ -28,6 +25,6 @@
 	else{
 		echo "Account could not be created.";
 	}
-	
+
 	$mysqli->close();
 ?>
