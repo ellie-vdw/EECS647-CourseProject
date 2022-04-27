@@ -1,22 +1,21 @@
-
 <?php
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);
+	$mysqli = new mysqli("mysql.eecs.ku.edu", "ellenvandewate", "raoThah7","ellenvandewate");
+	if ($mysqli->connect_errno) {
+		printf("Connect failed: %s\n", $mysqli->connect_error);
+		exit();
+	}
+	$query = "DELETE FROM Members WHERE $sernameLibraryCardNum FROM Members";
+	$result = $mysqli->query($query);
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			echo "Library Card Number: " . $row["LibraryCardNum"]. "<br>";
+		}
+	} 
+	else {
+		echo "0 results";
+	}
+	$mysqli->close();
 
-    // Create connection
-    $mysqli = new mysqli("mysql.eecs.ku.edu", "n578b202", "uhaip9ei", "n578b202");
-
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-
-    // sql to delete a record -- 3 is example
-    $sql = "DELETE FROM MyTable WHERE id=3";
-
-    if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-    } else {
-    echo "Error deleting record: " . $conn->error;
-    }
-
-    $conn->close();
 ?>

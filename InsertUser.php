@@ -6,31 +6,30 @@
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-	$query = "SELECT LibraryCardNum FROM Members";
+
+	$username = $_POST["username"];
+    $password = $_POST["password"];
+    $name = $_POST["name"];
+	$phone = $_POST["phone"];
+    $address = $_POST["address"];
+    $email = $_POST["email"];
+    $cardInfo = $_POST["cardInfo"];
+    $buildingNum = $_POST["buildngNum"];
+
+
 	$result = $mysqli->query($query);
     // check for existing account
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-            echo "Existing account!";
+            echo "Here are the existing accounts:";
 			echo "Library Card Number: " . $row["LibraryCardNum"]. "<br>";
 		}
 	} 
+
     //create account
 	else{
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $query = "SELECT user_id FROM Users where user_id='".$username."";
-
-        if($_POST["username"] != '' && $num_rows < 1){
-            $query = "INSERT INTO Users (user_id) VALUES (\"$username\");";
-
-            if ($mysqli->query($query) == TRUE){
-                printf("Username saved.");
-            } 
-        } 
-        else{
-            printf("Usernames cannot be empty.");
-        }
+		$sql = "INSERT INTO Members ($username, $name, $phone, $address, $email, $cardInfo, $buildingNum)";
+		echo "Account created successfully.";
 	}
 	$mysqli->close();
 ?>
