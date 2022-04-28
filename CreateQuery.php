@@ -9,14 +9,13 @@
     $username = $_POST["username"];
     $query = "SELECT BooksBorrowed.BorrowID, Books.Title, Books.Author, Books.Genre FROM BooksBorrowed INNER JOIN Books ON BooksBorrowed.BookID = Books.BookID WHERE BooksBorrowed.LibraryCardNum = '$username'";
     $result = $mysqli->query($query);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "Borrow id: " . $row["BooksBorrowed.BorrowID"]. " Book Title: " . $row["Books.Title"]. " Author" . $row["Books.Author"]. " Genre" . $row["Books.Genre"]. "<br>";
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+            echo " Borrow id: " . $row["BorrowID"]. " Book Title: " . $row["Title"]. " Author " . $row["Author"]. " Genre " . $row["Genre"]. "<br>";
+        }
+    } 
+    else {
+        echo "0 results";
     }
-    } else {
-    echo "0 results";
-    }
-    $conn->close();
+    $mysqli->close();
 ?>
