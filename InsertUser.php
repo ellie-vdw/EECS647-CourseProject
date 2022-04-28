@@ -16,14 +16,22 @@
     $cardInfo = $_POST["cardInfo"];
     $buildingNum = $_POST["buildingNum"];
 
-	//create account
-    $sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
-	
-	if($mysqli->query($sql)){
-		echo "Account created successfully.";
+	$test = "SELECT LibraryCardNum FROM Members WHERE LibraryCardNum = '$username'";
+	$tresults = $mysqli->query($test);
+	if($username == ""){ echo "Please enter a username <br>";}
+	else if ($tresults->num_rows > 0){
+		echo "Username is already taken. Please try again <br>";
+		$tresults->free();
 	}
 	else{
-		echo "Account could not be created.";
+		$sql = "INSERT INTO Members (LibraryCardNum, MemberName, PhoneNum, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES('$username', '$name', '$phone', '$address', '$email', '$cardInfo', '$buildingNum', '$password')";
+
+		if($mysqli->query($sql) === TRUE){
+			echo "Account created successfully.";
+		}
+		else{
+			echo "Account could not be created.";
+		}
 	}
 
 	$mysqli->close();

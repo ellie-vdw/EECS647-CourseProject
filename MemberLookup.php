@@ -6,16 +6,18 @@
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-    $username = $_POST["username"];
-    $query = "SELECT BooksBorrowed.BorrowID, Books.Title, Books.Author, Books.Genre FROM BooksBorrowed INNER JOIN Books ON BooksBorrowed.BookID = Books.BookID WHERE BooksBorrowed.LibraryCardNum = '$username'";
+    $name = $_POST["name"];
+    $query = "SELECT Members.MemberName, Members.LibraryCardNum, Members.PhoneNum, Members.MemberEmail FROM Members INNER JOIN Libraries ON Members.BuildingNum = Libraries.BuildingNum WHERE Libraries.Name = '$name'";
     $result = $mysqli->query($query);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-            echo "Borrow id: " . $row["BorrowID"]. "<br> Book Title: " . $row["Title"]. "<br> Author " . $row["Author"]. "<br> Genre " . $row["Genre"]. "<br><br>";
+            echo "Member Name: " . $row["MemberName"]. "<br> Member Card Number: " . $row["LibraryCardNum"]. "<br> Phone Number: " . $row["PhoneNum"]. "<br> Email: " . $row["MemberEmail"]. "<br><br>";
         }
     } 
     else {
         echo "0 results";
     }
     $mysqli->close();
+
+
 ?>

@@ -10,7 +10,7 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "DELETE FROM Members WHERE LibraryCardNum = $username AND Password = $password";
+    $sql = "DELETE FROM Members WHERE LibraryCardNum = '$username' AND Password = '$password'";
 
     if($mysqli->query($sql) === TRUE){
 		echo "Account deleted successfully.";
@@ -22,14 +22,3 @@
 	$mysqli->close();
 
 ?>
-
-
-
-$sql = "INSERT INTO Members (LibraryCardNum, MemberName, Address, MemberEmail, CreditCardInfo, BuildingNum, Password) VALUES($username, $name, $phone, $address, $email, $cardInfo, $buildingNum, $password)";
-	
-	if(mysqli_query($mysqli, $sql)){
-		echo "Account created successfully.";
-	}
-	else{
-		echo "Account could not be created.";
-	}

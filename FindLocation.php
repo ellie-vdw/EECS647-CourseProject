@@ -14,7 +14,7 @@
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo "Library Name: " . $row["Name"]." Phone Number: " . $row["PhoneNum"]." Address: " . $row["Address"]."<br>";
+            echo "Library Name: " . $row["Name"]."<br> Phone Number: " . $row["PhoneNum"]."<br> Address: " . $row["Address"]."<br><br>";
         }
     } 
     else {

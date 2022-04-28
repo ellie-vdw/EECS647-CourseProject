@@ -15,7 +15,7 @@
 		$result = $mysqli->query($query);
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
-				echo "Library Card Number: " . $row["LibraryCardNum"]. " Name: " .$row["MemberName"]. " Phone Number: " .$row["PhoneNum"]. "Address: " .$row["Address"]. "Email: " .$row["MemberEmail"]. " Library Number: " .$row["BuildingNum"]. "<br>";
+				echo "Library Card Number: " . $row["LibraryCardNum"]. "<br> Name: " .$row["MemberName"]. "<br> Phone Number: " .$row["PhoneNum"]. "<br> Address: " .$row["Address"]. "<br> Email: " .$row["MemberEmail"]. "<br> Credit Card Information: " .$row["CreditCardInfo"]. "<br> Library Number: " .$row["BuildingNum"]. "<br><br>";
 			}
 		} 
 		else {
@@ -25,6 +25,7 @@
 	else{
 		echo "No results found, please try again";
 	}
+	
 	$mysqli->close();
 
 ?>
